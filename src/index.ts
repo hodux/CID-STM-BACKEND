@@ -1,17 +1,28 @@
 import express, { Request, Response } from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+const uri = process.env.MONGO_URI as string;
 
-// Middleware de parsing du JSON
 app.use(express.json());
 
-// Route de base
+// Mongoose connection
+mongoose.connect(uri)
+  .then(() => console.log('Connected to MongoDB Atlas'))
+  .catch((error) => {
+    console.error('MongoDB connection error:', error);
+  });
+
+// Base route
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello, TypeScript with Express!');
 });
 
-// Démarrage du serveur
+// Start server
 app.listen(port, () => {
-  console.log(`Serveur en écoute sur <http://localhost:${port}>`);
+  console.log(`Server running at <http://localhost:${port}>`);
 });
