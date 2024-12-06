@@ -52,4 +52,46 @@ export class UserServiceMongo {
         return users;
 
     }
+
+
+    public static async changePassword(req:Request){
+        try{
+            const idUser=parseInt(req.params.id);
+            const user=await userModel.findOne({id:idUser});
+            console.log(user);
+            if(!user){
+                return null;
+            }
+            user.password=req.body.password || user.password;
+
+            const userPasswordChanged=await user.save();
+            return userPasswordChanged;
+            
+        }catch(error){
+            console.log("error:"+error);
+        }
+       return null;
+    }
+
+    public static async deleteUser(req:Request):Promise<boolean>{
+        try{
+            const idUser=parseInt(req.params.id);
+            
+            const user=await userModel.findOne({id:idUser});
+
+            if(!user){
+                return false;
+            }
+
+            await userModel.deleteOne({id:idUser});
+            return true;
+
+        }catch(error){
+            console.log(error);
+        }
+        return false;
+
+    }
+
+
 }
