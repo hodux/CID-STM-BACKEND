@@ -1,15 +1,10 @@
-import mongoose, {Schema} from "mongoose";
-import { User } from "../interfaces/user.interface";
+import { IUser } from '../interfaces/user.interface';
+import mongoose from 'mongoose';
 
-const userSchema=new Schema<User>({
-    id:{type:Number,required: true},
-    email:{type:String,required:true},
-    username:{type:String,required:true},
-    password:{type:String,required:true},
-    role:{type:String,required:true}
-
-});
-
-const userModel=mongoose.model("User",userSchema);
-
-export default userModel;
+const schema = new mongoose.Schema<IUser>({
+    email: {type: String, required: true},
+    username: {type: String, required: true},
+    password:{type: String, required: true},
+    role:{ type: String, enum: ["administrator", "employee"], required: true}
+})
+export const User = mongoose.model('user', schema);

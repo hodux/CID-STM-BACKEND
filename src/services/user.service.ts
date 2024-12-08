@@ -1,97 +1,89 @@
-import { User } from '../interfaces/user.interface';
-import userModel from '../models/user.model';
-import userModelMongo from '../models/user.model';
-import express, { Request, Response } from 'express';
+import { User } from '../models/user.model';
+import { logger } from '../utils/logger';
+import bcrypt from 'bcryptjs';
 
+export class UserService {
 
-export class UserServiceMongo {
+    public static async getAllUsers(){
+        try {
+            const users = await User.find();
+            logger.info("The user's list have been recuperated ");
+            return users;
+        } catch (error) {
+            logger.error("Not able to recuperate the users Error:"+ error);
+        }
+    }
+    public static async createNewUser(name:string, email:string, password: string) {
+        let code:number;
+        let message:any;
+        let encryptedPwd = await bcrypt.hash(password, 10);
+        const user = new User({
+            username: name,
+            email:email,
+            password:encryptedPwd,
+            role:"employee"
+        })
+        try {
+            const newUser = await user.save();
+            message = {"mess": "The user have been created", "data":newUser};
+            logger.info(message);
+            code = 201;
+        } catch (error) {
+            message = {"mess":"Something bad happen","data":error};
+            logger.error(message);
+            code = 404
+        }
+        return {data :message, http: code};
+    }
+    public static async modifyUser(id:string,name:string, email:string, password: string){
+        let code:number;
+        let message:string;
+        let encryptedPwd = await bcrypt.hash(password, 10);
+        let updatedData = {
+            username:name,
+            email:email,
+            password:encryptedPwd,
+        }
+        try {
+            const res = await User.findByIdAndUpdate(id, updatedData)
+            code = 200;
+            message = "The product have been modified"
+            logger.info(message);
 
+        } catch (error) {
+            message = "Something bad happen:" + error;
+            logger.error(message);
+            code = 400
+        }
+        return {data: message, http: code}
+    }
+    public static async deleteUser(id:string){
+        let code:number;
+        let message:string;
+        try {
+            const res = await User.findByIdAndDelete(id);
+            code = 204;
+            message = "The product have been deleted"
+            logger.info(message);
+        } catch (error) {
+            message = "Something bad happen:" + error;
+            logger.error(message);
+            code = 400
+        }
+        return {data: message, http: code}
+    }
     public static async findByEmail(email: string) {
-        try{
-            const user=await userModelMongo.findOne({email});
-            return user;
-        }catch(error){
-            console.error("error",error);
-            return null;
+        let message:any;
+        let code:number;
+        try {
+            message = await User.findOne({email:email})
+            logger.info("The user have been found" + message);
+            code = 200;
+        }catch (error) {
+            message = "Something bad happen:" + error;
+            logger.error(message);
+            code = 400
         }
-      }
-
-    public static async readUsers(){
-        try{
-        const users=await userModelMongo.find();
-        return users;
-
-        }catch(error){
-            console.log("error",error);
-        }
-        return null;
+        return {data: message , http: code }
     }
-
-    public static async createUser(req:Request):Promise<User[]>{
-        let users:User[]=[];
-        let lenghtOfDocs=await userModel.countDocuments();
-        try{
-            const newUser={
-                id: lenghtOfDocs+1,
-                email: req.body.email,
-                username: req.body.username,
-                password: req.body.password,
-                role:req.body.role // Depending in the sign up / sign in
-
-            }
-            users.push(newUser);
-
-            await userModel.create(newUser);
-            console.log("User created")
-           
-
-        }catch(error){
-            console.log("error",error);
-        }
-
-        return users;
-
-    }
-
-
-    public static async changePassword(req:Request){
-        try{
-            const idUser=parseInt(req.params.id);
-            const user=await userModel.findOne({id:idUser});
-            console.log(user);
-            if(!user){
-                return null;
-            }
-            user.password=req.body.password || user.password;
-
-            const userPasswordChanged=await user.save();
-            return userPasswordChanged;
-            
-        }catch(error){
-            console.log("error:"+error);
-        }
-       return null;
-    }
-
-    public static async deleteUser(req:Request):Promise<boolean>{
-        try{
-            const idUser=parseInt(req.params.id);
-            
-            const user=await userModel.findOne({id:idUser});
-
-            if(!user){
-                return false;
-            }
-
-            await userModel.deleteOne({id:idUser});
-            return true;
-
-        }catch(error){
-            console.log(error);
-        }
-        return false;
-
-    }
-
-
 }
