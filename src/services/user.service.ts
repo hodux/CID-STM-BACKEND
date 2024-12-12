@@ -77,8 +77,15 @@ export class UserService {
         let code:number;
         try {
             message = await User.findOne({email:email})
-            logger.info("The user have been found" + message);
-            code = 200;
+            if(message != null){
+                logger.info("The user have been found" + message);
+                code = 200;
+            }
+            else{
+                message = "The user not found"
+                logger.info(message);
+                code = 404;
+            }
         }catch (error) {
             message = "Something bad happen:" + error;
             logger.error(message);

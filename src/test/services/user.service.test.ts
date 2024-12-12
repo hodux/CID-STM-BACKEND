@@ -3,7 +3,6 @@ import { UserService } from "../../services/user.service";
 import {User} from "../../models/user.model";
 import {DB_connection} from "../../config/database.config";
 import dotenv from "dotenv";
-import {notEqual} from "node:assert";
 dotenv.config();
 const uri = process.env.MONGO_URI_TEST as string;
 beforeAll(async () => {
