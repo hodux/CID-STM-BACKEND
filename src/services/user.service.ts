@@ -6,7 +6,7 @@ export class UserService {
 
     public static async getAllUsers(){
         try {
-            const users = await User.find();
+            const users = await User.find({username:{ $ne: "admin"}});
             logger.info("The user's list have been recuperated ");
             return users;
         } catch (error) {

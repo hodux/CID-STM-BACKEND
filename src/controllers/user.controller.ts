@@ -15,7 +15,7 @@ export class UserController {
         let email = req.body.email;
         let password = req.body.password;
         const newUser = await UserService.createNewUser(name,email,password);
-        res.status(newUser.http).json({"data":newUser.data});
+        res.status(newUser.http).json(newUser.data);
     };
     public async updateUser(req: Request, res: Response): Promise<void> {
         let username = req.body.username;
@@ -28,6 +28,7 @@ export class UserController {
     public async deleteUser(req: Request, res: Response): Promise<void> {
         let id = req.params.id;
         const deletedUser = await UserService.deleteUser(id);
+        console.log(deletedUser);
         res.status(deletedUser.http).json({"message":deletedUser.data});
     }
 
