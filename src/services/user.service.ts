@@ -37,7 +37,7 @@ export class UserService {
     }
     public static async modifyUser(id:string,name:string, email:string, password: string){
         let code:number;
-        let message:string;
+        let message:any;
         let encryptedPwd = await bcrypt.hash(password, 10);
         let updatedData = {
             username:name,
@@ -45,9 +45,9 @@ export class UserService {
             password:encryptedPwd,
         }
         try {
-            const res = await User.findByIdAndUpdate(id, updatedData)
+            const res = await User.findByIdAndUpdate(id, updatedData,{new: true})
             code = 200;
-            message = "The product have been modified"
+            message = {"mess": "The product have been modified", "data":res};
             logger.info(message);
 
         } catch (error) {

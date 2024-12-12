@@ -5,6 +5,7 @@ import {UserService} from "./services/user.service";
 import {User} from "./models/user.model";
 import userRoutes from './routes/user.route';
 import authRoute from "./routes/auth.route";
+import {DB_connection} from "./config/database.config";
 dotenv.config();
 
 const app = express();
@@ -16,11 +17,7 @@ const uri = process.env.MONGO_URI as string;
 app.use(express.json());
 
 // Mongoose connection
-mongoose.connect(uri)
-  .then(() => console.log('Connected to MongoDB Atlas'))
-  .catch((error) => {
-    console.error('MongoDB connection error:', error);
-  });
+DB_connection(uri);
 
 // Base route
 app.get('/', (req: Request, res: Response) => {
