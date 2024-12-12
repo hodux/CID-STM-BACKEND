@@ -5,10 +5,11 @@ import {UserService} from "./services/user.service";
 import {User} from "./models/user.model";
 import userRoutes from './routes/user.route';
 import authRoute from "./routes/auth.route";
+import cors from 'cors';
 dotenv.config();
 
 const app = express();
-
+app.use(cors());
 
 const port = process.env.PORT || 3000;
 const uri = process.env.MONGO_URI as string;
