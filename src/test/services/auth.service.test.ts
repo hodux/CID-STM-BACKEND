@@ -16,8 +16,8 @@ afterAll(async () => {
 describe("Auth service", () => {
     describe("right login", () => {
         test("Should return JWT token", async () => {
-            const user = await UserService.createNewUser("Test", "test@gmail.com", "abc-123");
-            const token = await AuthService.login("test@gmail.com", "abc-123");
+            const user = await UserService.createNewUser("Test", "john@test.com", "abc-123");
+            const token = await AuthService.login("john@test.com", "abc-123");
             const decoded = await AuthService.verifyToken(token);
             expect(decoded.id).toBe(user.data.data.id);
         })

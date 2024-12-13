@@ -11,7 +11,7 @@ const userController = new UserController();
 router.get('/users',verifyToken, roleMiddleware(allRole), userController.getAllUsers);
 router.post('/users', userController.createNewUser);
 // @ts-ignore
-router.put('/users/:id',verifyToken, roleMiddleware(administratorRole), userController.updateUser);
+router.put('/users/:id',verifyToken, roleMiddleware(allRole), userController.updateUser);
 // @ts-ignore
 router.delete('/users/:id',verifyToken, roleMiddleware(administratorRole), userController.deleteUser);
 export default router;

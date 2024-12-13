@@ -23,13 +23,12 @@ export class UserController {
         let password = req.body.password;
         let id = req.params.id;
         const updateUser = await UserService.modifyUser(id,username,email,password);
-        res.status(updateUser.http).json({"message":updateUser.data});
+        res.status(updateUser.http).json(updateUser.data);
     };
     public async deleteUser(req: Request, res: Response): Promise<void> {
         let id = req.params.id;
         const deletedUser = await UserService.deleteUser(id);
-        console.log(deletedUser);
-        res.status(deletedUser.http).json({"message":deletedUser.data});
+        res.status(deletedUser.http).json(deletedUser.data);
     }
 
 }

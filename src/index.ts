@@ -32,14 +32,15 @@ app.get('/', (req: Request, res: Response) => {
 app.use("/api", userRoutes);
 app.use("/api", authRoute);
 // Start server
-https.createServer(options, app).listen(httpsPort, () => {
+const httpsApp = https.createServer(options, app).listen(httpsPort, () => {
   console.log(`Serveur HTTPS en écoute sur <https://localhost>:${httpsPort}`);
 });
+
 http.createServer((req, res) => {
   res.writeHead(301, { "Location": `https://localhost:${httpsPort}${req.url}` });
   res.end();
 }).listen(httpPort, () => {
   console.log(`Serveur HTTP en écoute sur <http://localhost>:${httpPort}`);
 });
-// console.log(UserService.createNewUser("test3", "test3@test.com", "abc-123"));
-// console.log(UserService.deleteUser("6754e43eb522b8b842c2714d"))
+
+export default httpsApp;

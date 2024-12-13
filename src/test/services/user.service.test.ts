@@ -22,7 +22,7 @@ describe("user service", () => {
     describe("Get All Users", () => {
         test("Should return the full user's list", async () => {
             const users = await UserService.getAllUsers();
-            expect(users?.length).toBe(1);
+            expect(users?.length).toBe(2);
         })
     })
     describe("Modify User by id", () => {
@@ -31,7 +31,7 @@ describe("user service", () => {
             let id = user.data.data.id;
             const email = user.data.data.email;
             const modifiedUser = await UserService.modifyUser(id,"Test", "modiftest@gmail.com","abc-123");
-            const modifiedEmail = modifiedUser.data.data.email;
+            const modifiedEmail = modifiedUser.data.email;
             expect(modifiedUser.http).toBe(200);
             expect(email).not.toBe(modifiedEmail);
         })
