@@ -1,15 +1,12 @@
 import express, { Request, Response } from 'express';
 import https from 'https';
 import fs from 'fs';
-import path from 'path';
-import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import {UserService} from "./services/user.service";
-import {User} from "./models/user.model";
 import userRoutes from './routes/user.route';
 import authRoute from "./routes/auth.route";
 import cors from 'cors';
 import {DB_connection} from "./config/database.config";
+import {loadCertificate} from "./middlewares/certificat.middleware";
 import * as http from "node:http";
 dotenv.config();
 
@@ -18,15 +15,11 @@ app.use(cors());
 
 const httpPort = process.env.HTTP || 3000;
 const httpsPort = process.env.HTTPS || 3001;
-const keyPath = process.env.SSL_KEY_PATH as string;
-const certPath = process.env.SSL_CERT_PATH as string;
+
 const uri = process.env.MONGO_URI as string;
 
 app.use(express.json());
-const options = {
-  key: fs.readFileSync(keyPath),
-  cert: fs.readFileSync(certPath)
-};
+const options = loadCertificate();
 
 // Mongoose connection
 DB_connection(uri);
