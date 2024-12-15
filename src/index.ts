@@ -8,6 +8,9 @@ import cors from 'cors';
 import {DB_connection} from "./config/database.config";
 import {loadCertificate} from "./middlewares/certificat.middleware";
 import * as http from "node:http";
+
+import {TripService} from "./services/trip.service";
+
 dotenv.config();
 
 const app = express();
@@ -42,5 +45,7 @@ http.createServer((req, res) => {
 }).listen(httpPort, () => {
   console.log(`Serveur HTTP en écoute sur <http://localhost>:${httpPort}`);
 });
+
+console.log(TripService.getAllTrips())
 
 export default httpsApp;
