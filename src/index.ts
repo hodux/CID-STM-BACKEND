@@ -8,8 +8,7 @@ import cors from 'cors';
 import {DB_connection} from "./config/database.config";
 import {loadCertificate} from "./middlewares/certificat.middleware";
 import * as http from "node:http";
-
-import {TripService} from "./services/trip.service";
+import tripRoute from "./routes/trip.route";
 
 dotenv.config();
 
@@ -34,6 +33,7 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use("/api", userRoutes);
 app.use("/api", authRoute);
+app.use("/api", tripRoute);
 // Start server
 const httpsApp = https.createServer(options, app).listen(httpsPort, () => {
   console.log(`Serveur HTTPS en écoute sur <https://localhost>:${httpsPort}`);
@@ -45,7 +45,5 @@ http.createServer((req, res) => {
 }).listen(httpPort, () => {
   console.log(`Serveur HTTP en écoute sur <http://localhost>:${httpPort}`);
 });
-
-console.log(TripService.getAllTrips())
 
 export default httpsApp;
