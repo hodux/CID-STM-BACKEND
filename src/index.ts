@@ -4,6 +4,7 @@ import fs from 'fs';
 import dotenv from 'dotenv';
 import userRoutes from './routes/user.route';
 import authRoute from "./routes/auth.route";
+import vehicleRoute from "./routes/vehicle.route";
 import cors from 'cors';
 import {DB_connection} from "./config/database.config";
 import {loadCertificate} from "./middlewares/certificat.middleware";
@@ -31,6 +32,8 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use("/api", userRoutes);
 app.use("/api", authRoute);
+app.use("/api", vehicleRoute)
+
 // Start server
 const httpsApp = https.createServer(options, app).listen(httpsPort, () => {
   console.log(`Serveur HTTPS en écoute sur <https://localhost>:${httpsPort}`);
