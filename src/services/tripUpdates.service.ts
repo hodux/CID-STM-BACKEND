@@ -10,32 +10,30 @@ export class calculateTripTime {
                 $group: {
                     _id: "$trip_id",
                     stop_sequence:{$push:"$$ROOT"},
-                    firstStopTime:{$min:"$departure_time"},
-                    lastStopTime:{$max:"$arrival_time"}
+                    firstStopTime:{
+                        $min:{
+                            $convert:{input:"$departure_time",to:"int",onError:null,onNull:null}
+
+
+                        }},
+                    lastStopTime:{
+                        $max:{
+                             $convert:{input:"$arrival_time",to:"int",onError:null,onNull:null}
+                            }
+                        }
+                    
                 }
             },
             {
                 $project:{
                     tripId:"$_id",
+                    routeId:"$route_id",
                     stop_sequence:1,
-                    duration:{
-                        $subtract: [
-                            {
-                              $cond: {
-                                if: { $and: [{ $ne: ["$lastStopTime", null] }, { $ne: ["$lastStopTime", NaN] }] },
-                                then: { $toInt: "$lastStopTime" },
-                                else: 0
-                              }
-                            },
-                            {
-                              $cond: {
-                                if: { $and: [{ $ne: ["$firstStopTime", null] }, { $ne: ["$firstStopTime", NaN] }] },
-                                then: { $toInt: "$firstStopTime" },
-                                else: 0
-                              }
-                            }
-                          ]
+                    firstStopTime:1,
+                    lastStopTime:1,
 
+                    duration:{
+                    $subtract:["$lastStopTime", "$firstStopTime"]
                     },
                     stopsNumber:{$size:"$stop_sequence"}
                 }
