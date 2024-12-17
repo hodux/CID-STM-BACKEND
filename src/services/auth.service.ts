@@ -6,7 +6,9 @@ import { UserService } from './user.service';
 
 export class AuthService {
     public static async login(email: string, password: string): Promise<string> {
+
         const user = await UserService.findByEmail(email);
+        console.log(user)
         if(user.http == 404){
             return "";
         }

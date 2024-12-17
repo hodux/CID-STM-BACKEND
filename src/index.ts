@@ -13,6 +13,7 @@ import tripRoute from "./routes/trip.route";
 dotenv.config();
 
 const app = express();
+
 app.use(cors());
 
 const httpPort = process.env.HTTP || 3000;
