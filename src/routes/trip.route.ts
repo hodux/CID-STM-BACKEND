@@ -16,6 +16,8 @@ const tripController = new TripController();
  *     summary: Retrieve and show all trips, does not require any parameters. || WILL TAKE A LOT OF TIME
  *     description: Retrieve a list of all trips related to STM transport
  *     tags: [Trips]
+ *     security:
+ *        - bearerAuth: []
  *     responses:
  *       200:
  *         description: A list of all trips.
@@ -50,6 +52,12 @@ const tripController = new TripController();
  *                   departure_occupancy_status:
  *                     type: string
  *                     example: EMPTY
+ *       403:
+ *           description: Requires an authentified user to perform action
+ *       400: 
+ *           description: An error happened (Bad request)
+ *       404:
+ *           description: Users inacessibles / Not found
  *                    
  */
 router.get('/trips', tripController.getAllTrips);
@@ -62,6 +70,8 @@ router.get('/trips', tripController.getAllTrips);
  *     summary: Retrieve and show the maxSequences of all trips, if applicable
  *     description: Retrieve a list of all the maxSequences of trips related to STM transport
  *     tags: [Trips]
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: A list of all trip's max sequence.
@@ -78,6 +88,12 @@ router.get('/trips', tripController.getAllTrips);
  *                   stop_sequence:
  *                     type: integer
  *                     example: 22
+ *       403:
+ *           description: Requires an authentified user to perform action
+ *       400: 
+ *           description: An error happened (Bad request)
+ *       404:
+ *           description: Users inacessibles / Not found
  *                   
  *                    
  */
