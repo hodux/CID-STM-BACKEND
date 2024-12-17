@@ -8,6 +8,7 @@ import cors from 'cors';
 import {DB_connection} from "./config/database.config";
 import {loadCertificate} from "./middlewares/certificat.middleware";
 import * as http from "node:http";
+import tripRoute from "./routes/tripUpdates.routes"
 dotenv.config();
 
 const app = express();
@@ -31,6 +32,7 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use("/api", userRoutes);
 app.use("/api", authRoute);
+app.use("/api",tripRoute);
 // Start server
 const httpsApp = https.createServer(options, app).listen(httpsPort, () => {
   console.log(`Serveur HTTPS en écoute sur <https://localhost>:${httpsPort}`);

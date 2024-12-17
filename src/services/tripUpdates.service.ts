@@ -4,31 +4,45 @@ export class calculateTripTime {
     static async calculateTripTimeOfBus(){
         try{
 
-            const tripIds=await TripUpdates.find().distinct('trip_id');
-            const tripDurationsOfAllBuses=[];
-            let tripId;
+           const tripDurationOfAllBus= await TripUpdates.aggregate([
+            {
 
-            for(tripId in tripIds) {
-                const tripStops=await TripUpdates.find({trip_id:tripId}).sort('stop_sequence')
+                $group: {
+                    _id: "$trip_id",
+                    stop_sequence:{$push:"$$ROOT"},
+                    firstStopTime:{$min:"$departure_time"},
+                    lastStopTime:{$max:"$arrival_time"}
+                }
+            },
+            {
+                $project:{
+                    tripId:"$_id",
+                    stop_sequence:1,
+                    duration:{
+                        $subtract: [
+                            {
+                              $cond: {
+                                if: { $and: [{ $ne: ["$lastStopTime", null] }, { $ne: ["$lastStopTime", NaN] }] },
+                                then: { $toInt: "$lastStopTime" },
+                                else: 0
+                              }
+                            },
+                            {
+                              $cond: {
+                                if: { $and: [{ $ne: ["$firstStopTime", null] }, { $ne: ["$firstStopTime", NaN] }] },
+                                then: { $toInt: "$firstStopTime" },
+                                else: 0
+                              }
+                            }
+                          ]
 
-                
-            const firstStop=tripStops[0];
-            const lastStop=tripStops[tripStops.length-1];
-
-            const startTime=parseInt(firstStop.departure_time,10)
-            const endTime=parseInt(lastStop.arrival_time,10)
-
-            const tripDuration=endTime-startTime;
-
-            tripDurationsOfAllBuses.push({
-                tripId: tripId,
-                duration:tripDuration,
-                stopsNumber:tripStops.length
-            })
+                    },
+                    stopsNumber:{$size:"$stop_sequence"}
+                }
             }
+           ]);
 
-            return tripDurationsOfAllBuses;
-
+           return tripDurationOfAllBus;
 
 
 
