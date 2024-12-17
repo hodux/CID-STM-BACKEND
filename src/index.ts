@@ -11,10 +11,11 @@ import * as http from "node:http";
 import tripRoute from "./routes/trip.route";
 const swaggerUi = require('swagger-ui-express');
 import swaggerJsdoc = require('swagger-jsdoc');
-
+import tripRoute2 from "./routes/tripUpdates.routes"
 dotenv.config();
 
 const app = express();
+
 app.use(cors());
 
 const swaggerOptions = {
@@ -64,6 +65,7 @@ app.get('/', (req: Request, res: Response) => {
 app.use("/api", userRoutes);
 app.use("/api", authRoute);
 app.use("/api", tripRoute);
+app.use("/api",tripRoute2);
 // Start server
 const httpsApp = https.createServer(options, app).listen(httpsPort, () => {
   console.log(`Serveur HTTPS en écoute sur <https://localhost>:${httpsPort}`);

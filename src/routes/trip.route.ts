@@ -54,6 +54,7 @@ const tripController = new TripController();
  */
 router.get('/trips', tripController.getAllTrips);
 
+
 /**
  * @swagger
  * /api/trips/maxSequences:
@@ -80,6 +81,7 @@ router.get('/trips', tripController.getAllTrips);
  *                   
  *                    
  */
-router.get('/trips/maxSequences', tripController.getMaxSequences);
+// @ts-ignore
+router.get('/trips/maxSequences', verifyToken, roleMiddleware(allRole), tripController.getMaxSequences);
 
 export default router;
