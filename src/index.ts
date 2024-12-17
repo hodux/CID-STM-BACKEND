@@ -9,12 +9,42 @@ import {DB_connection} from "./config/database.config";
 import {loadCertificate} from "./middlewares/certificat.middleware";
 import * as http from "node:http";
 import tripRoute from "./routes/trip.route";
+const swaggerUi = require('swagger-ui-express');
+import swaggerJsdoc = require('swagger-jsdoc');
 
 dotenv.config();
 
 const app = express();
 
 app.use(cors());
+
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.0',
+    components: {
+        securitySchemes: {
+        bearerAuth: {
+          type: http,
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+    },
+    },
+    security: [{
+      bearerAuth: [],
+    }],
+    info: {
+      title: 'STM API',
+      version: '1.0.0',
+      description: 'Swagger Api to manage STM related routes',
+    },
+    
+  },
+  apis: ['./src/routes/*.ts'],
+};
+
+const swaggerDocs = swaggerJsdoc(swaggerOptions);
+app.use('/api/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 const httpPort = process.env.HTTP || 3000;
 const httpsPort = process.env.HTTPS || 3001;
