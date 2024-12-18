@@ -22,9 +22,9 @@ export class VehicleController {
     public async getVehicleCountPerSeat(req : Request, res : Response) {
         /*
         const vehicles = await VehicleService.getVehicleCountPerSeat();
-        if (vehicles != null) {
-            res.status(404).json({"message" : "No vehicles found"});
-        }
+        // if (vehicles != null) {
+        //     res.status(404).json({"message" : "No vehicles found"});
+        // }
         res.status(200).json(vehicles);
         */
     }
