@@ -37,14 +37,20 @@
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [get vehicles:routeId] Retourne un véhicule dépendant de son Identifiant de route spécifique
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [get seats] Retourne le nombre de sièges pour chaque véhicule
           
-## GUIDE D'INSTALLATION
+## GUIDE D'INSTALLATION | LIBRAIRIES UTILISÉES
 ### NODE DOIT ÊTRE INSTALLÉ AU PRÉALABLE
 #### **EXPRESS** : 
 ##### npm install express
 #### **TYPESCRIPT** : 
-##### npm install typescript
-#### **MONGOOSE** (MongoDB) : 
+##### LOCALEMENT: npm install -D typescript
+##### GLOBALEMENT: npm install -g typescript
+#### **TS-NODE** : 
+##### LOCALEMENT: npm install -D ts-node
+##### GLOBALEMENT: npm install -g ts-node
+#### **MONGOOSE** : 
 ##### npm install mongoose
+#### **MONGODB** : 
+##### npm install mongodb@6.12
 #### **SWAGGER** : 
 ##### npm install swagger-ui-express swagger-jsdoc | npm install --save-dev @types/swagger-jsdoc | npm install --save-dev @types/swagger-ui-express
 #### **JEST** :
@@ -55,3 +61,11 @@
 ##### npm install dotenv --save
 #### **CORS** :
 ##### npm install cors
+#### **FS** :
+##### INSTALLED WITH NODE
+#### **BCRYPT** :
+##### npm install bcrypt
+#### **JWT** :
+##### npm install jsonwebtoken
+#### **WINSTON** :
+##### npm install winston
