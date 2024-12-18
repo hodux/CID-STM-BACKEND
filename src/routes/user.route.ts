@@ -7,6 +7,9 @@ import { roleMiddleware } from '../middlewares/roles.middleware';
 const router = Router();
 const userController = new UserController();
 
+
+//SWAGGER DOCUMENTATION: USERS
+
 /**
  * @swagger
  * /api/users:
