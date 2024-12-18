@@ -4,9 +4,13 @@
 # API D'ANALYSE DU SERVICE DE TRANSPORT DE LA STM | BACKEND
 
 ### LIEN FRONTEND --> https://github.com/hodux/CID-STM-FRONTEND
-### API STM UTILISÉ --> https://www.stm.info/fr/a-propos/developpeurs<
 ### ACCÈS À L'API (FrontEnd) --> https://localhost:5000
 ### ACCÈS À LA DOCUMENTATION / TEST ENDPOINTS (Swagger) --> https://localhost:3001/api/v1/api-docs
+
+### SOURCE DES DONNÉES : API STM UTILISÉ --> https://www.stm.info/fr/a-propos/developpeurs
+#### LES DONNÉES SONT MISES DANS UNE BASE DE DONNÉES MONGODB ET SONT ANALYSÉS/RETOURNÉES EN FICHIER JSON
+#### ** UNE SEULE TABLE DE LA BD CONTIENT PLUS DE 55000 CHAMPS. 
+
 
 ## ARCHITECTURE DE L'APPLICATION BACKEND:
 ####      &nbsp;&nbsp; - EXPRESS 4.21.2
