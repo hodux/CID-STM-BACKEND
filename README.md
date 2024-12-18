@@ -80,6 +80,7 @@
 
 ## DIFFICULTÉS RENCONTRÉES:
 1. **SWAGGER**:
+   
           - L'abondance de données apportait plusieurs problèmes lors de méthodes "GET", le problème était lié au "syntaxHighlight", qui doit donc être désactivé.
 2. 
 
