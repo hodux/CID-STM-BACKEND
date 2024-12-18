@@ -1,6 +1,8 @@
 # CID-STM-BACKEND
 Épreuve finale | 420-514-MV COLLECTE ET INTERPRÉTATION DE DONNÉES groupe 00001 
 
+# API D'ANALYSE DU SERVICE DE TRANSPORT DE LA STM | BACKEND
+
 ### LIEN FRONTEND --> https://github.com/hodux/CID-STM-FRONTEND
 ### API STM UTILISÉ --> https://www.stm.info/fr/a-propos/developpeurs<
 ### ACCÈS À L'API (FrontEnd) --> https://localhost:5000
@@ -13,6 +15,14 @@
 ####      &nbsp;&nbsp; - DATABASE: MONGODB 6.11.0
 ####      &nbsp;&nbsp; - TESTS: JEST 29.7.0
 ####      &nbsp;&nbsp; - MODÈLE UTILISÉ: MVC (MODEL, VIEW, CONTROLLER)
+
+## FONCTIONS DE L'API
+### &nbsp;&nbsp;&nbsp; USERS (CRUD)
+### &nbsp;&nbsp;&nbsp; AUTHENTIFICATION (SIGNUP, SIGNIN(LOGIN))
+### &nbsp;&nbsp;&nbsp; ANALYSE DES SERVICES DE TRANSPORTS:
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp TRIPS:
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Tous les trajets effectués de la STM
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - La séquence maximale de chaques trajet, si applicable
           
 ## GUIDE D'INSTALLATION
 ### NODE DOIT ÊTRE INSTALLÉ AU PRÉALABLE
