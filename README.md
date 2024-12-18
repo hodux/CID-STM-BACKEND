@@ -21,6 +21,7 @@
 ####      &nbsp;&nbsp; - MODÈLE UTILISÉ: MVC (MODEL, VIEW, CONTROLLER)
 
 ## FONCTIONS DE L'API
+
 #### &nbsp;&nbsp;&nbsp; **USERS** :
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CRUD (CREATE [post users], READ [get users], UPDATE [put users:id], DELETE [delete users:id])
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RÔLES: UTILISATEUR OU ADMINISTRATEUR
@@ -28,6 +29,7 @@
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SIGNUP, SIGNIN ET [post LOGIN]
 #### &nbsp;&nbsp;&nbsp; ANALYSE DES SERVICES DE TRANSPORTS:
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **TRIPS** :
+### ENDPOINTS
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [get trips] Récupère tous les trajets effectués de la STM
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [get trips/maxSequences] Retourne La séquence maximale de chaques trajet, si applicable
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **TRIPS UPDATES** :
