@@ -7,7 +7,7 @@
 ###      &nbsp;&nbsp; - EXPRESS
 ###      &nbsp;&nbsp; - TYPESCRIPT
 ###      &nbsp;&nbsp; - SWAGGER
-###      &nbsp;&nbsp;&nbsp;&nbsp; - TESTS:
+###      &nbsp;&nbsp; - TESTS:
 ####        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - JEST
 ####        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - POSTMAN
           
