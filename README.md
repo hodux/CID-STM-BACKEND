@@ -11,8 +11,8 @@
 ####      &nbsp;&nbsp; - TYPESCRIPT 5.5.4
 ####      &nbsp;&nbsp; - DOCUMENTATION: SWAGGER  (jsdoc 6.2.8, ui-express 5.0.1)
 ####      &nbsp;&nbsp; - DATABASE: MONGODB 6.11.0
-####      &nbsp;&nbsp; - MODÈLE UTILISÉ: MVC (MODEL, VIEW, CONTROLLER)
 ####      &nbsp;&nbsp; - TESTS: JEST 29.7.0
+####      &nbsp;&nbsp; - MODÈLE UTILISÉ: MVC (MODEL, VIEW, CONTROLLER)
           
 ## GUIDE D'INSTALLATION
 ### NODE DOIT ÊTRE INSTALLÉ AU PRÉALABLE
