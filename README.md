@@ -7,12 +7,10 @@
 # ARCHITECTURE DE L'APPLICATION BACKEND:
 ####      &nbsp;&nbsp; - EXPRESS 4.21.2
 ####      &nbsp;&nbsp; - TYPESCRIPT 5.5.4
-####      &nbsp;&nbsp; - SWAGGER  (jsdoc 6.2.8, ui-express 5.0.1)
+####      &nbsp;&nbsp; - DOCUMENTATION: SWAGGER  (jsdoc 6.2.8, ui-express 5.0.1)
 ####      &nbsp;&nbsp; - DATABASE: MONGODB 6.11.0
 ####      &nbsp;&nbsp; - MODÈLE UTILISÉ: MVC (MODEL, VIEW, CONTROLLER)
-####      &nbsp;&nbsp; - TESTS:
-#####        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - JEST 29.7.0
-#####        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - POSTMAN
+####      &nbsp;&nbsp; - TESTS: JEST 29.7.0
           
 # Guide d'installation
 ### NODE DOIT ÊTRE INSTALLÉ AU PRÉALABLE
@@ -20,5 +18,11 @@
 ##### npm install express
 #### TYPESCRIPT : 
 ##### npm install typescript
+#### MONGOOSE (MongoDB) : 
+##### npm install mongoose
 #### SWAGGER : 
 ##### npm install swagger-ui-express swagger-jsdoc | npm install --save-dev @types/swagger-jsdoc | npm install --save-dev @types/swagger-ui-express
+#### JEST:
+##### npm install --save-dev jest s-jest
+#### HTTPS:
+##### npm install https
