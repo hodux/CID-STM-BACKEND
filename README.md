@@ -7,9 +7,13 @@
 ### ACCÈS À L'API (FrontEnd) --> https://localhost:5000
 ### ACCÈS À LA DOCUMENTATION / TEST ENDPOINTS (Swagger) --> https://localhost:3001/api/v1/api-docs
 
+## INFORMATIONS SUR LES DONNÉES:
+
 ### SOURCE DES DONNÉES : API STM UTILISÉ --> https://www.stm.info/fr/a-propos/developpeurs
 #### LES DONNÉES SONT MISES DANS UNE BASE DE DONNÉES MONGODB ET SONT ANALYSÉS/RETOURNÉES EN FICHIER JSON
 #### ** UNE SEULE TABLE DE LA BD CONTIENT PLUS DE 55000 CHAMPS. 
+
+### LES DONNÉES SONT MISES À JOUR EN CONTINUE, À CHAQUES 5 MINUTES, PERMETTANT LE SUIVI ET L'ANALYSE CONTINUE
 
 
 ## ARCHITECTURE DE L'APPLICATION BACKEND:
@@ -38,7 +42,7 @@
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [get vehicles:routeId] Retourne un véhicule dépendant de son Identifiant de route spécifique
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [get seats] Retourne le nombre de sièges pour chaque véhicule
           
-## GUIDE D'INSTALLATION | LIBRAIRIES UTILISÉES
+## GUIDE D'INSTALLATION DES DÉPENDANCES | LIBRAIRIES UTILISÉES
 ### NODE DOIT ÊTRE INSTALLÉ AU PRÉALABLE
 #### **EXPRESS** : 
 ##### npm install express
@@ -70,3 +74,6 @@
 ##### npm install jsonwebtoken
 #### **WINSTON** :
 ##### npm install winston
+
+## DÉMARRAGE DU BACKEND
+### npm run dev
