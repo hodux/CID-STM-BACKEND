@@ -69,11 +69,11 @@
 #### **FS** :
 ##### INSTALLED WITH NODE
 #### **BCRYPT** :
-##### npm install bcrypt
+##### `npm install bcrypt`
 #### **JWT** :
-##### npm install jsonwebtoken
+##### `npm install jsonwebtoken`
 #### **WINSTON** :
-##### npm install winston
+##### `npm install winston`
 
 ## DÉMARRAGE DU BACKEND
-### npm run dev
+### ­­`npm run dev`
