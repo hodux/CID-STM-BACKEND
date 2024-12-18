@@ -21,18 +21,18 @@
 ####      &nbsp;&nbsp; - MODÈLE UTILISÉ: MVC (MODEL, VIEW, CONTROLLER)
 
 ## FONCTIONS DE L'API
-#### &nbsp;&nbsp;&nbsp; USERS:
+#### &nbsp;&nbsp;&nbsp; **USERS** :
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CRUD (CREATE [post users], READ [get users], UPDATE [put users:id], DELETE [delete users:id])
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RÔLES: UTILISATEUR OU ADMINISTRATEUR
-#### &nbsp;&nbsp;&nbsp; AUTHENTIFICATION 
+#### &nbsp;&nbsp;&nbsp; **AUTHENTIFICATION** : 
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SIGNUP, SIGNIN ET [post LOGIN]
 #### &nbsp;&nbsp;&nbsp; ANALYSE DES SERVICES DE TRANSPORTS:
-#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TRIPS:
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **TRIPS** :
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [get trips] Récupère tous les trajets effectués de la STM
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [get trips/maxSequences] Retourne La séquence maximale de chaques trajet, si applicable
-#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TRIPS UPDATES:
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **TRIPS UPDATES** :
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [get trips/duration] Retourne une analyse détaillée de la durée de trajet des transports de la STM
-#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Vehicles:
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Vehicles** :
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [get vehicles] Récupère Tous les véhicules utilisés par la STM
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [get vehicles:routeId] Retourne un véhicule dépendant de son Identifiant de route spécifique
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - [get seats] Retourne le nombre de sièges pour chaque véhicule
