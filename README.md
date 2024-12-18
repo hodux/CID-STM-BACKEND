@@ -14,10 +14,10 @@
 #####        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - POSTMAN
           
 # Guide d'installation
-## NODE DOIT ÊTRE INSTALLÉ AU PRÉALABLE
-### EXPRESS : 
+### NODE DOIT ÊTRE INSTALLÉ AU PRÉALABLE
+#### EXPRESS : 
 ##### npm install express
-### TYPESCRIPT : 
+#### TYPESCRIPT : 
 ##### npm install typescript
-### SWAGGER : 
+#### SWAGGER : 
 ##### npm install swagger-ui-express swagger-jsdoc | npm install --save-dev @types/swagger-jsdoc | npm install --save-dev @types/swagger-ui-express
