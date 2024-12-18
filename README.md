@@ -2,7 +2,9 @@
 Épreuve finale | 420-514-MV COLLECTE ET INTERPRÉTATION DE DONNÉES groupe 00001 
 
 ### LIEN FRONTEND --> https://github.com/hodux/CID-STM-FRONTEND
-### API STM UTILISÉ --> https://www.stm.info/fr/a-propos/developpeurs
+### API STM UTILISÉ --> https://www.stm.info/fr/a-propos/developpeurs<
+### ACCÈS À L'API (FrontEnd) --> https://localhost:5000
+### ACCÈS À LA DOCUMENTATION | TEST ENDPOINTS (Swagger) --> https://localhost:3001/api/v1/api-docs
 
 ## ARCHITECTURE DE L'APPLICATION BACKEND:
 ####      &nbsp;&nbsp; - EXPRESS 4.21.2
