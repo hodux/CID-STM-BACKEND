@@ -13,3 +13,8 @@
 #####        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - JEST 29.7.0
 #####        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - POSTMAN
           
+# Guide d'installation
+## NODE DOIT ÊTRE INSTALLÉ AU PRÉALABLE
+### EXPRESS : npm install express
+### TYPESCRIPT : npm install typescript
+### SWAGGER : npm install swagger-ui-express swagger-jsdoc | npm install --save-dev @types/swagger-jsdoc | npm install --save-dev @types/swagger-ui-express
