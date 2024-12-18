@@ -7,6 +7,8 @@
 ###      &nbsp;&nbsp; - EXPRESS
 ###      &nbsp;&nbsp; - TYPESCRIPT
 ###      &nbsp;&nbsp; - SWAGGER
+###      &nbsp;&nbsp; - DATABASE: MONGODB
+###      &nbsp;&nbsp; - MODÈLE UTILISÉ: MVC (MODEL, VIEW, CONTROLLER)
 ###      &nbsp;&nbsp; - TESTS:
 ####        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - JEST
 ####        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - POSTMAN
