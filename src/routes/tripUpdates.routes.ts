@@ -10,7 +10,7 @@ const router=Router();
  * /api/trips/duration:
  *   get:
  *     summary: Retrieve and show all trip's duration, does not require any parameters.
- *     description: Retrieve a list of all trip's duration having access to this api
+ *     description: Retrieve a list of all trip's duration, containing duration, stops, firstStopTime and lastStopTime 
  *     tags: [Trips | Updates]
 *      
  *     responses:
@@ -23,18 +23,22 @@ const router=Router();
  *               items:
  *                 type: object
  *                 properties:
- *                   _id:
+ *                   route_id:
  *                     type: string
- *                     example: 29317787435
- *                   username:
- *                     type: string
- *                     example: bigGeorge
- *                   password:
- *                     type: string
- *                     example: georgeHuge92
- *                   role:
- *                     type: string
- *                     example: admin
+ *                     example: "523"
+ *                   duration:
+ *                     type: float
+ *                     example: 523.23
+ *                   stops:
+ *                     type: integer
+ *                     example: 1123
+ *                   firstStopTime:
+ *                     type: integer
+ *                     example: 1293719837
+ *                   lastStopTime:
+ *                     type: integer
+ *                     example: 123132165733
+ *                   
  *       404:
  *           description: Trips inacessibles / Not found
  * 

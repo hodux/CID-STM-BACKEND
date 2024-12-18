@@ -40,13 +40,13 @@ const authController = new AuthController();
  *                 properties:
  *                   username:
  *                     type: string
- *                     example: bigGeorge
+ *                     example: "bigGeorge"
  *                   password:
  *                     type: string
- *                     example: georgeHuge92
+ *                     example: "georgeHuge92"
  *                   email:
  *                     type: string
- *                     example: georgeBig@gmail.com
+ *                     example: "georgeBig@gmail.com"
  *       404:
  *           description: User inacessible / Not found
  *       401:

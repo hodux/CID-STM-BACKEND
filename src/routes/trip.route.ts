@@ -31,25 +31,25 @@ const tripController = new TripController();
  *                     example: 29317787435
  *                   trip_id:
  *                     type: string
- *                     example: 29317787
+ *                     example: "29317787"
  *                   route_id:
  *                     type: string
- *                     example: 523
+ *                     example: "523"
  *                   stop_sequence:
  *                     type: integer
  *                     example: 523
  *                   arrival_time:
  *                     type: string
- *                     example: 1293719837
+ *                     example: "1293719837"
  *                   departure_time:
  *                     type: string
- *                     example: 1293719837
+ *                     example: "1293719837"
  *                   stop_id:
  *                     type: string
- *                     example: 1231321
+ *                     example: "1231321"
  *                   departure_occupancy_status:
  *                     type: string
- *                     example: EMPTY
+ *                     example: "EMPTY"
  *                    
  */
 router.get('/trips', tripController.getAllTrips);
