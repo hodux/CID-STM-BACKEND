@@ -40,11 +40,18 @@ const swaggerOptions = {
     },
     
   },
+  
   apis: ['./src/routes/*.ts'],
 };
 
+const swaggerUiOptions = {
+  swaggerOptions: {
+    syntaxHighlight: false, 
+  },
+};
+
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
-app.use('/api/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use('/api/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs, swaggerUiOptions));
 
 const httpPort = process.env.HTTP || 3000;
 const httpsPort = process.env.HTTPS || 3001;
