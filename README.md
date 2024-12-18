@@ -39,19 +39,19 @@
           
 ## GUIDE D'INSTALLATION
 ### NODE DOIT ÊTRE INSTALLÉ AU PRÉALABLE
-#### EXPRESS : 
+#### **EXPRESS** : 
 ##### npm install express
-#### TYPESCRIPT : 
+#### **TYPESCRIPT** : 
 ##### npm install typescript
-#### MONGOOSE (MongoDB) : 
+#### **MONGOOSE** (MongoDB) : 
 ##### npm install mongoose
-#### SWAGGER : 
+#### **SWAGGER** : 
 ##### npm install swagger-ui-express swagger-jsdoc | npm install --save-dev @types/swagger-jsdoc | npm install --save-dev @types/swagger-ui-express
-#### JEST:
+#### **JEST** :
 ##### npm install --save-dev jest s-jest
-#### HTTPS:
+#### **HTTPS** :
 ##### npm install https
-#### DOTENV:
+#### **DOTENV** :
 ##### npm install dotenv --save
-#### CORS:
+#### **CORS** :
 ##### npm install cors
