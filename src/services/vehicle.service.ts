@@ -9,7 +9,6 @@ export class VehicleService {
         try {
             const vehicles = await Vehicle.find();
             logger.info("Vehicle Service: getAllVehicle - Success");
-            console.log(vehicles);
             return vehicles
         } catch (error) {
             logger.error("Vehicle Service: getAllVehicle - ", error);
@@ -30,7 +29,7 @@ export class VehicleService {
         try {
             const vehicles = await Vehicle.find().lean();
 
-            // Danfo, get the amount of vehicle per seat occupancy
+            // Danfo, get the count of vehicle per seat occupancy
             const df = new dfd.DataFrame(vehicles);
             const grouped = df.groupby(["vehicle_occupancy_status"]).count();
             const final_df = grouped.loc({ columns: ['vehicle_occupancy_status', 'id_count'] }).resetIndex();
