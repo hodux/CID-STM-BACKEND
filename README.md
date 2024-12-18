@@ -12,7 +12,7 @@
 ####      &nbsp;&nbsp; - MODÈLE UTILISÉ: MVC (MODEL, VIEW, CONTROLLER)
 ####      &nbsp;&nbsp; - TESTS: JEST 29.7.0
           
-## Guide d'installation
+## GUIDE D'INSTALLATION
 ### NODE DOIT ÊTRE INSTALLÉ AU PRÉALABLE
 #### EXPRESS : 
 ##### npm install express
@@ -26,3 +26,7 @@
 ##### npm install --save-dev jest s-jest
 #### HTTPS:
 ##### npm install https
+#### DOTENV:
+##### npm install dotenv --save
+#### CORS:
+##### npm install cors
