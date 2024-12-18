@@ -8,6 +8,6 @@
 ###      &nbsp;&nbsp; - TYPESCRIPT
 ###      &nbsp;&nbsp; - SWAGGER
 ###      &nbsp;&nbsp; - TESTS:
-####        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - JEST
-####        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - POSTMAN
+####        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - JEST
+####        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - POSTMAN
           
