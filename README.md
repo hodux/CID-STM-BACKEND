@@ -4,10 +4,10 @@
 ## LIEN FRONTEND --> https://github.com/hodux/CID-STM-FRONTEND
 
 # ARCHITECTURE DE L'APPLICATION BACKEND:
-###      - EXPRESS
-###      - TYPESCRIPT
-###      - SWAGGER
-###      - TESTS:
-####        - JEST
-####        &nbsp;&nbsp;&nbsp;&nbsp;- POSTMAN
+###      &nbsp;&nbsp;&nbsp;&nbsp;- EXPRESS
+###      &nbsp;&nbsp;&nbsp;&nbsp;- TYPESCRIPT
+###      &nbsp;&nbsp;&nbsp;&nbsp;- SWAGGER
+###      &nbsp;&nbsp;&nbsp;&nbsp;- TESTS:
+####        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- JEST
+####        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- POSTMAN
           
