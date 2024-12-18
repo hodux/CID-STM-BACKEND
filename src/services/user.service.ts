@@ -7,34 +7,47 @@ export class UserService {
     public static async getAllUsers(){
         try {
             const users = await User.find({username:{ $ne: "admin"}});
-            logger.info("The user's list have been recuperated ");
+            logger.info("The user's list has been recuperated ");
             return users;
         } catch (error) {
-            logger.error("Not able to recuperate the users Error:"+ error);
+            logger.error("Not able to recuperate the user. Error: "+ error);
         }
     }
-    public static async createNewUser(name:string, email:string, password: string) {
-        let code:number;
-        let message:any;
-        let encryptedPwd = await bcrypt.hash(password, 10);
-        const user = new User({
-            username: name,
-            email:email,
-            password:encryptedPwd,
-            role:"employee"
-        })
+
+    public static async createNewUser(name: string, email: string, password: string) {
+        let code: number;
+        let message: any;
+    
         try {
+            const existingUser = await User.findOne({ $or: [{ email }, { username: name }] });
+            if (existingUser) {
+                code = 409;
+                message = { mess: "User with this email or username already exists" };
+                logger.info(message);
+                return { data: message, http: code };
+            }
+
+            const encryptedPwd = await bcrypt.hash(password, 10);
+        
+            const user = new User({
+                username: name,
+                email: email,
+                password: encryptedPwd,
+                role: "employee"
+            });
+    
             const newUser = await user.save();
-            message = {"mess": "The user have been created", "data":newUser};
+            message = { mess: "The user has been created", data: newUser };
             logger.info(message);
             code = 201;
         } catch (error) {
-            message = {"mess":"Something bad happen","data":error};
+            message = { mess: "Something bad happened", data: error };
             logger.error(message);
-            code = 404
+            code = 500;
         }
-        return {data :message, http: code};
+        return { data: message, http: code };
     }
+    
     public static async modifyUser(id:string,name:string, email:string, password: string){
         let code:number;
         let message:any;
@@ -47,11 +60,11 @@ export class UserService {
         try {
             const res = await User.findByIdAndUpdate(id, updatedData,{new: true})
             code = 200;
-            message = {"mess": "The product have been modified", "data":res};
+            message = {"mess": "The user has been modified", "data":res};
             logger.info(message);
 
         } catch (error) {
-            message = "Something bad happen:" + error;
+            message = "Something bad happened:" + error;
             logger.error(message);
             code = 400
         }
@@ -72,26 +85,24 @@ export class UserService {
         }
         return {data: message, http: code}
     }
-    public static async findByEmail(email: string) {
-        let message:any;
-        let code:number;
+    public static async findByEmailOrUsername(identifier: string) {
+        let message: any;
+        let code: number;
         try {
-            message = await User.findOne({email:email})
-            if(message != null){
-                logger.info("The user have been found" + message);
+            message = await User.findOne({ $or: [{ email: identifier }, { username: identifier }] });
+            if (message != null) {
+                logger.info("The user has been found: " + message);
                 code = 200;
-            }
-            else{
-                message = "The user not found"
+            } else {
+                message = "The user has not been found";
                 logger.info(message);
                 code = 404;
             }
-        }catch (error) {
-            message = "Something bad happen:" + error;
+        } catch (error) {
+            message = "Something bad happened:" + error;
             logger.error(message);
-            code = 400
+            code = 400;
         }
-        return {data: message , http: code }
+        return { data: message, http: code };
     }
-
 }
