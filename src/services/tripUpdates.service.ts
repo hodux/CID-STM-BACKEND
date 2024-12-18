@@ -20,14 +20,15 @@ export class calculateTripTime {
                         $max:{
                              $convert:{input:"$arrival_time",to:"int",onError:null,onNull:null}
                             }
-                        }
+                        },
+                        routeId:{$first:"$route_id"}
                     
                 }
             },
             {
                 $project:{
                     tripId:"$_id",
-                    routeId:"$route_id",
+                    routeId:1,
                     stop_sequence:1,
                     firstStopTime:1,
                     lastStopTime:1,
@@ -37,11 +38,36 @@ export class calculateTripTime {
                     },
                     stopsNumber:{$size:"$stop_sequence"}
                 }
+            },
+            {
+                $sort:{
+                    routeId:1,
+                    duration:-1
+                }
+            },
+            {
+                $group:{
+                    _id:"$routeId",
+                    longestTrip:{$first:"$$ROOT"}
+                }
+            },
+            {
+                $replaceRoot:{newRoot:"$longestTrip"}
             }
            ]);
+           
 
-           return tripDurationOfAllBus;
+           const cleanDataForChart=tripDurationOfAllBus.map(bus=>({
+            routeId:`Bus ${bus.routeId}`,
+            duration:bus.duration/60,
+            stops:bus.stopsNumber,
+            firstStopTime:bus.firstStopTime,
+            lastStopTime:bus.lastStopTime
+           }))
 
+           return cleanDataForChart;
+
+       
 
 
         }catch(error){
@@ -49,3 +75,4 @@ export class calculateTripTime {
         }
     }
 }
+

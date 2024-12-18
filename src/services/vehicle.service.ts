@@ -1,8 +1,9 @@
 import {Vehicle} from "../models/vehicle.model";
 import {logger} from "../utils/logger";
+/*
 import * as dfd from "danfojs-node";
 import { toJSON } from "danfojs-node"
-
+*/
 export class VehicleService {
 
     public static async getAllVehicles() {
@@ -24,8 +25,10 @@ export class VehicleService {
             logger.error("Vehicle Service: getVehicleById -", error);
         }
     }
+    
 
     public static async getVehicleCountPerSeat() {
+        /*
         try {
             const vehicles = await Vehicle.find().lean();
 
@@ -40,6 +43,7 @@ export class VehicleService {
         } catch (error) {
             logger.error("Vehicle Service: getVehicleCountPerSeat - ", error);
         }
+            */
     }
 
 
