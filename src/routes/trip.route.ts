@@ -7,7 +7,7 @@ import {TripController} from "../controllers/trip.controller";
 const router = Router();
 const tripController = new TripController();
 
-//SWAGGER DOCUMENTATION: GET ALL TRIPS
+//SWAGGER DOCUMENTATION: TRIPS
 
 /**
  * @swagger

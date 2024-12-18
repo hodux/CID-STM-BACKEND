@@ -5,6 +5,8 @@ import {verifyToken} from "../middlewares/auth.middleware";
 const router = Router();
 const authController = new AuthController();
 
+//SWAGGER DOCUMENTATION: AUTHENTIFICATION
+
 /**
  * @swagger
  * /api/login:
