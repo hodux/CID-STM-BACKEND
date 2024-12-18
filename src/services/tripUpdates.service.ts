@@ -58,7 +58,7 @@ export class calculateTripTime {
            
 
            const cleanDataForChart=tripDurationOfAllBus.map(bus=>({
-            routeId:`Bus ${bus.routeId}`,
+            routeId:bus.routeId,
             duration:bus.duration/60,
             stops:bus.stopsNumber,
             firstStopTime:bus.firstStopTime,

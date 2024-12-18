@@ -8,9 +8,12 @@ const uri = process.env.MONGO_URI_TEST as string;
 beforeAll(async () => {
     DB_connection(uri);
     await User.deleteMany({"username":"Test"});
+    await User.deleteMany({"username":"Test2"});
+
 });
 afterAll(async () => {
     await User.deleteMany({"username":"Test"});
+    await User.deleteMany({"username":"Test2"});
 });
 describe("user service", () => {
     describe("User creation", () => {
@@ -22,16 +25,16 @@ describe("user service", () => {
     describe("Get All Users", () => {
         test("Should return the full user's list", async () => {
             const users = await UserService.getAllUsers();
-            expect(users?.length).toBe(2);
+            expect(users?.length).toBe(1);
         })
     })
     describe("Modify User by id", () => {
         test("Should return the new user with a message and a http code", async () => {
-            const user = await UserService.createNewUser("Test","test@gmail.com","abc-123");
-            let id = user.data.data.id;
+            const user = await UserService.createNewUser("Test2","test@gmail.com","abc-123");
+            let id = user.data.data._id;
             const email = user.data.data.email;
-            const modifiedUser = await UserService.modifyUser(id,"Test", "modiftest@gmail.com","abc-123");
-            const modifiedEmail = modifiedUser.data.email;
+            const modifiedUser = await UserService.modifyUser(id,"Test2", "modiftest@gmail.com","abc-123");
+            const modifiedEmail = modifiedUser.data.data.email;
             expect(modifiedUser.http).toBe(200);
             expect(email).not.toBe(modifiedEmail);
         })

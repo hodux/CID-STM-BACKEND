@@ -23,9 +23,10 @@ describe("Auth service", () => {
         })
     })
     describe("bad login", () => {
-        test("Should return JWT token", async () => {
-            const token = await AuthService.login("test2@gmail.com", "abc-123");
-            expect(token).toBe("");
+        test("Should return User or email not found", async () => {
+            const token = await AuthService.login("test2daasdsasddas@gmail.com", "abc-123");
+            expect(token).toBe("User or email not found");
         })
+       
     })
 })

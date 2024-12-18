@@ -60,7 +60,7 @@ export class UserService {
         try {
             const res = await User.findByIdAndUpdate(id, updatedData,{new: true})
             code = 200;
-            message = {"mess": "The user has been modified", "data":res};
+            message = {"mess": "The user has been modified", data:res};
             logger.info(message);
 
         } catch (error) {

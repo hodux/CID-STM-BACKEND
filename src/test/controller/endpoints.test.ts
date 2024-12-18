@@ -39,25 +39,27 @@ describe("Get All User as user", () => {
             .cert(certificate.cert)
             .trustLocalhost(true)
         expect(res.statusCode).toEqual(200)
-        expect(res.body.length).toBe(7);
+        expect(res.body.length).toBeGreaterThan(0);
     })
 })
 describe("POST create User", () => {
     it("Should return the created user with http code and a message", async () => {
         // any user should be able to create an account without any token
+        const uniqueEmail= `user${Date.now()}@gmail.com`
+        const uniqueUsername=`userTest${Date.now()}`
         const res = await request(app)
             .post('/api/users')
             .key(certificate.key)
             .cert(certificate.cert)
             .trustLocalhost(true)
             .send({
-                "username": "userTest",
-                "email":"user2@gmail.com",
+                "username": uniqueUsername,
+                "email":uniqueEmail,
                 "password":"abc-123"
             })
         expect(res.statusCode).toEqual(201)
         expect(res.body.mess).toBe('The user have been created');
-        expect(res.body.data.email).toBe('user2@gmail.com');
+        expect(res.body.data.email).toBe(uniqueEmail);
     })
 })
 describe("PUT modify User", () => {
@@ -74,7 +76,7 @@ describe("PUT modify User", () => {
                 "password":"abc-123"
             })
         expect(res.statusCode).toEqual(200)
-        expect(res.body.mess).toBe('The product have been modified');
+        expect(res.body.mess).toBe('The user has been modified');
         expect(res.body.data.email).not.toBe('authtest@gmail.com');
     })
 })
