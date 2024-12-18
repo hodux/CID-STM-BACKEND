@@ -5,14 +5,18 @@ import { logger } from '../utils/logger';
 export class AuthController {
 
     public async login(req: Request, res: Response): Promise<void> {
-        let email = req.body.email;
-        let password = req.body.password;
-        const token = await AuthService.login(email, password);
-        if(token != ""){
-            logger.info("L'utilisateur a connecté avec succes");
-            res.status(200).json({token})
-        }else{
-            res.status(401).json("Invalid email or password");
+        const { identifier, password } = req.body;
+        try {
+            const token = await AuthService.login(identifier, password);
+            if (token) {
+                logger.info("User logged in successfully.");
+                res.status(200).json({ token });
+            } else {
+                res.status(401).json("Invalid identifier or password.");
+            }
+        } catch (error) {
+            logger.error("Error occurred during login:", error);
+            res.status(500).json("Internal server error.");
         }
     }
 }
