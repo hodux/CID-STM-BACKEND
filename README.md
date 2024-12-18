@@ -18,7 +18,7 @@
 
 ## FONCTIONS DE L'API
 #### &nbsp;&nbsp;&nbsp; USERS:
-##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CRUD (CREATE[post users], READ[get users], UPDATE[put users:id], DELETE[delete users:id])
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CRUD (CREATE [post users], READ [get users], UPDATE [put users:id], DELETE [delete users:id])
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RÔLES: UTILISATEUR OU ADMINISTRATEUR
 #### &nbsp;&nbsp;&nbsp; AUTHENTIFICATION 
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SIGNUP, SIGNIN ET [post LOGIN]
