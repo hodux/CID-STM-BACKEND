@@ -4,31 +4,43 @@ export class calculateTripTime {
     static async calculateTripTimeOfBus(){
         try{
 
-            const tripIds=await TripUpdates.find().distinct('trip_id');
-            const tripDurationsOfAllBuses=[];
-            let tripId;
+           const tripDurationOfAllBus= await TripUpdates.aggregate([
+            {
 
-            for(tripId in tripIds) {
-                const tripStops=await TripUpdates.find({trip_id:tripId}).sort('stop_sequence')
+                $group: {
+                    _id: "$trip_id",
+                    stop_sequence:{$push:"$$ROOT"},
+                    firstStopTime:{
+                        $min:{
+                            $convert:{input:"$departure_time",to:"int",onError:null,onNull:null}
 
-                
-            const firstStop=tripStops[0];
-            const lastStop=tripStops[tripStops.length-1];
 
-            const startTime=parseInt(firstStop.departure_time,10)
-            const endTime=parseInt(lastStop.arrival_time,10)
+                        }},
+                    lastStopTime:{
+                        $max:{
+                             $convert:{input:"$arrival_time",to:"int",onError:null,onNull:null}
+                            }
+                        }
+                    
+                }
+            },
+            {
+                $project:{
+                    tripId:"$_id",
+                    routeId:"$route_id",
+                    stop_sequence:1,
+                    firstStopTime:1,
+                    lastStopTime:1,
 
-            const tripDuration=endTime-startTime;
-
-            tripDurationsOfAllBuses.push({
-                tripId: tripId,
-                duration:tripDuration,
-                stopsNumber:tripStops.length
-            })
+                    duration:{
+                    $subtract:["$lastStopTime", "$firstStopTime"]
+                    },
+                    stopsNumber:{$size:"$stop_sequence"}
+                }
             }
+           ]);
 
-            return tripDurationsOfAllBuses;
-
+           return tripDurationOfAllBus;
 
 
 

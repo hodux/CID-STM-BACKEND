@@ -8,14 +8,11 @@ export class AuthController {
         let email = req.body.email;
         let password = req.body.password;
         const token = await AuthService.login(email, password);
-        console.log(token);
         if(token != ""){
             logger.info("L'utilisateur a connecté avec succes");
             res.status(200).json({token})
         }else{
             res.status(401).json("Invalid email or password");
         }
-
     }
-
 }

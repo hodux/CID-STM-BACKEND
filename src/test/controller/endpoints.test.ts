@@ -78,9 +78,9 @@ describe("PUT modify User", () => {
         expect(res.body.data.email).not.toBe('authtest@gmail.com');
     })
 })
+// User cannot delete
 describe("DELETE User", () => {
     it("Should return token authentification error", async () => {
-        // User cannot delete
         const res = await request(app)
             .delete('/api/users/'+id)
             .auth(token, {type:'bearer'})
