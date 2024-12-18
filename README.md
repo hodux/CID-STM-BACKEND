@@ -45,27 +45,27 @@
 ## GUIDE D'INSTALLATION DES DÉPENDANCES | LIBRAIRIES UTILISÉES
 ### NODE DOIT ÊTRE INSTALLÉ AU PRÉALABLE
 #### **EXPRESS** : 
-##### npm install express
+##### `npm install express`
 #### **TYPESCRIPT** : 
-##### LOCALEMENT: npm install -D typescript
-##### GLOBALEMENT: npm install -g typescript
+##### LOCALEMENT: `npm install -D typescript`
+##### GLOBALEMENT: `npm install -g typescript`
 #### **TS-NODE** : 
-##### LOCALEMENT: npm install -D ts-node
-##### GLOBALEMENT: npm install -g ts-node
+##### LOCALEMENT: `npm install -D ts-node`
+##### GLOBALEMENT: `npm install -g ts-node`
 #### **MONGOOSE** : 
-##### npm install mongoose
+##### `npm install mongoose`
 #### **MONGODB** : 
-##### npm install mongodb@6.12
+##### `npm install mongodb@6.12`
 #### **SWAGGER** : 
-##### npm install swagger-ui-express swagger-jsdoc | npm install --save-dev @types/swagger-jsdoc | npm install --save-dev @types/swagger-ui-express
+##### `npm install swagger-ui-express swagger-jsdoc | npm install --save-dev @types/swagger-jsdoc | npm install --save-dev @types/swagger-ui-express`
 #### **JEST** :
-##### npm install --save-dev jest s-jest
+##### `npm install --save-dev jest s-jest`
 #### **HTTPS** :
-##### npm install https
+##### `npm install https`
 #### **DOTENV** :
-##### npm install dotenv --save
+##### `npm install dotenv --save`
 #### **CORS** :
-##### npm install cors
+##### `npm install cors`
 #### **FS** :
 ##### INSTALLED WITH NODE
 #### **BCRYPT** :
@@ -76,4 +76,4 @@
 ##### `npm install winston`
 
 ## DÉMARRAGE DU BACKEND
-### ­­`npm run dev`
+##### ­­`npm run dev`
