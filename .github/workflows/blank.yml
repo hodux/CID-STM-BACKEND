@@ -25,9 +25,6 @@ jobs:
       - name: Clean install
         run: |
           npm ci
-      - name: Build
-        run: |
-          npm run build
       - name: Deploy to Render
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
