@@ -109,5 +109,7 @@
 
 4. **Pour lancer artillery de deux enpoints pour chercher les informations de l'API, lancer la commande artilery run test-loadAPI.yaml (attention, il ne marche pas en raison que les requetes sont trop gros ce qui fera des erreurs de timeouts, on pouvait pas bien les testers)**
 
+### Connection to mongoDb:email: cidstm.mail@gmail.com et pass: Oole1234!
+
 
 ## EQUIPE CID STM
