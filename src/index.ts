@@ -78,10 +78,14 @@ let httpApp = app;
 
 
 if(process.env.NODE_ENV== "development"){
-  let httpApp = https.createServer(options, app);
+  let httpApp = https.createServer(options, app).listen(httpPort,()=>{
+    console.log("https running")
+  });
   
 }if(process.env.NODE_ENV== "production"){
-  let httpApp=app;
+  let httpApp=app.listen(httpPort,()=>{
+    console.log("http running")
+  });
 }
 
 export default httpApp;
