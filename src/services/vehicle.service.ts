@@ -37,7 +37,7 @@ export class VehicleService {
             const final_df = grouped.loc({ columns: ['vehicle_occupancy_status', 'id_count'] }).resetIndex();
             final_df.rename({ 'id_count': 'count' }, { inplace: true });
             logger.info("Vehicle Service: getVehicleCountPerSeat - Success")
-            console.log(toJSON(final_df));
+            // console.log(toJSON(final_df));
 
             return toJSON(final_df);
         } catch (error) {
