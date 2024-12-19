@@ -74,17 +74,14 @@ app.use("/api", authRoute);
 app.use("/api", vehicleRoute)
 app.use("/api", tripRoute);
 
-// Start server
-const httpsApp = https.createServer(options, app).listen(httpsPort,'0.0.0.0', () => {
-  console.log(`Serveur HTTPS en écoute sur <https://localhost>:${httpsPort}`);
-});
+let httpApp = app;
 
-http.createServer((req, res) => {
-  const host = req.headers.host;
-  res.writeHead(301, { "Location": `https://${host}:${httpsPort}${req.url}` });
-  res.end();
-}).listen(httpPort, () => {
-  console.log(`Serveur HTTP en écoute sur port ${httpPort}`);
-});
 
-export default httpsApp;
+if(process.env.NODE_ENV== "development"){
+  let httpApp = https.createServer(options, app);
+  
+}if(process.env.NODE_ENV== "production"){
+  let httpApp=app;
+}
+
+export default httpApp;
