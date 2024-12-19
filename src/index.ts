@@ -53,8 +53,7 @@ const swaggerUiOptions = {
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
 app.use('/api/v1/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs, swaggerUiOptions));
 
-const httpPort = parseInt(process.env.HTTP || "3000", 10);
-const httpsPort = parseInt(process.env.HTTPS || "3001", 10);
+const port = parseInt(process.env.PORT || "3000", 10);
 
 const uri = process.env.MONGO_URI as string;
 
@@ -78,12 +77,12 @@ let httpApp = app;
 
 
 if(process.env.NODE_ENV== "development"){
-  let httpApp = https.createServer(options, app).listen(httpPort,()=>{
+  let httpApp = https.createServer(options, app).listen(port,()=>{
     console.log("https running")
   });
   
 }if(process.env.NODE_ENV== "production"){
-  let httpApp=app.listen(httpPort,()=>{
+  let httpApp=app.listen(port,()=>{
     console.log("http running")
   });
 }
