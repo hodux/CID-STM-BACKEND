@@ -1,0 +1,16 @@
+config:
+  target: 'https://localhost:3001'
+  tls:
+     rejectUnauthorized: false
+  phases:
+    - duration: 60  # Durée du test en secondes
+      arrivalRate: 1  # Requêtes par seconde
+scenarios:
+  - flow:
+      - get:
+          url: "/api/trips/duration?limit=50"
+          timeout: 60000
+      - get:
+          url: "/api/trips/maxSequences?limit=50"
+          timeout: 60000
+          
