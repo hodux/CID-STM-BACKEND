@@ -53,7 +53,7 @@ const swaggerUiOptions = {
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
 app.use('/api/v1/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs, swaggerUiOptions));
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 const uri = process.env.MONGO_URI as string;
 
@@ -73,15 +73,17 @@ app.use("/api", authRoute);
 app.use("/api", vehicleRoute)
 app.use("/api", tripRoute);
 
-let httpApp: http.Server | https.Server;
-if (process.env.NODE_ENV === "development") {
-httpApp = https.createServer(options, app);
-  httpApp.listen(port, () => {
-    console.log(`HTTPS running on port ${port}`);
+let httpApp = app;
+
+
+if(process.env.NODE_ENV== "development"){
+  let httpApp = https.createServer(options, app).listen(port,()=>{
+    console.log("https running")
   });
-} else {
-  httpApp = app.listen(port, () => {
-    console.log(`HTTP running on port ${port}`);
+  
+}if(process.env.NODE_ENV== "production"){
+  let httpApp=app.listen(port,()=>{
+    console.log("http running")
   });
 }
 
