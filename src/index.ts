@@ -53,7 +53,7 @@ const swaggerUiOptions = {
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
 app.use('/api/v1/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs, swaggerUiOptions));
 
-const port = parseInt(process.env.PORT || "3000", 10);
+const port = process.env.PORT || 3001;
 
 const uri = process.env.MONGO_URI as string;
 
