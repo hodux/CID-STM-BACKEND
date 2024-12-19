@@ -53,8 +53,8 @@ const swaggerUiOptions = {
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
 app.use('/api/v1/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs, swaggerUiOptions));
 
-const httpPort = process.env.HTTP || 3000;
-const httpsPort = process.env.HTTPS || 3001;
+const httpPort = parseInt(process.env.HTTP || "3000", 10);
+const httpsPort = parseInt(process.env.HTTPS || "3001", 10);
 
 const uri = process.env.MONGO_URI as string;
 
@@ -75,15 +75,16 @@ app.use("/api", vehicleRoute)
 app.use("/api", tripRoute);
 
 // Start server
-const httpsApp = https.createServer(options, app).listen(httpsPort, () => {
+const httpsApp = https.createServer(options, app).listen(httpsPort,'0.0.0.0', () => {
   console.log(`Serveur HTTPS en écoute sur <https://localhost>:${httpsPort}`);
 });
 
 http.createServer((req, res) => {
-  res.writeHead(301, { "Location": `https://localhost:${httpsPort}${req.url}` });
+  const host = req.headers.host;
+  res.writeHead(301, { "Location": `https://${host}:${httpsPort}${req.url}` });
   res.end();
 }).listen(httpPort, () => {
-  console.log(`Serveur HTTP en écoute sur <http://localhost>:${httpPort}`);
+  console.log(`Serveur HTTP en écoute sur port ${httpPort}`);
 });
 
 export default httpsApp;
