@@ -1,5 +1,3 @@
-/*
-
 import { VehicleService } from "../../services/vehicle.service";
 import mongoose from "mongoose";
 
@@ -46,4 +44,3 @@ describe("VehicleService", () => {
         });
     });
 });
-*/

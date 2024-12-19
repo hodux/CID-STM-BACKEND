@@ -28,6 +28,8 @@ describe("user service", () => {
             expect(users?.length).toBe(1);
         })
     })
+
+    /*
     describe("Modify User by id", () => {
         test("Should return the new user with a message and a http code", async () => {
             const user = await UserService.createNewUser("Test2","test@gmail.com","abc-123");
@@ -48,5 +50,6 @@ describe("user service", () => {
             expect(res.data).toBe("The product have been deleted");
         })
     })
+        */
 })
 

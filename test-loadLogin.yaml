@@ -1,0 +1,17 @@
+config:
+  target: 'https://localhost:3001'
+  tls:
+     rejectUnauthorized: false
+  phases:
+    - duration: 60  # Durée du test en secondes
+      arrivalRate: 1  # Requêtes par seconde
+scenarios:
+  - flow:
+      - post:
+          url: "/api/login"
+          json:
+            usernameOrEmail: "user123@gmail.com"
+            password: "pass123!"
+          timeout: 60000
+      
+          

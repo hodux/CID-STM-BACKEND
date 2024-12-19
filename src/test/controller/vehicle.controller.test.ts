@@ -1,4 +1,4 @@
-/*
+
 import request from "supertest";
 import app from "../../index";
 import { expect } from "@jest/globals";
@@ -32,4 +32,3 @@ describe("Vehicle Controller", () => {
 
 });
 
-*/

@@ -12,7 +12,6 @@ import * as http from "node:http";
 import tripRoute from "./routes/trip.route";
 const swaggerUi = require('swagger-ui-express');
 import swaggerJsdoc = require('swagger-jsdoc');
-import tripRoute2 from "./routes/tripUpdates.routes"
 dotenv.config();
 
 const app = express();
@@ -74,7 +73,6 @@ app.use("/api", userRoutes);
 app.use("/api", authRoute);
 app.use("/api", vehicleRoute)
 app.use("/api", tripRoute);
-app.use("/api",tripRoute2);
 
 // Start server
 const httpsApp = https.createServer(options, app).listen(httpsPort, () => {
