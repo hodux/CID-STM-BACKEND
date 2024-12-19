@@ -29,11 +29,13 @@ describe("user service", () => {
         })
     })
 
-    /*
+
     describe("Modify User by id", () => {
         test("Should return the new user with a message and a http code", async () => {
-            const user = await UserService.createNewUser("Test2","test@gmail.com","abc-123");
-            let id = user.data.data._id;
+            await User.deleteMany({"username":"Test2"});
+            const user = await UserService.createNewUser("Test2","test2@gmail.com","abc-123");
+            console.log(user);
+            let id = user.data.data.id;
             const email = user.data.data.email;
             const modifiedUser = await UserService.modifyUser(id,"Test2", "modiftest@gmail.com","abc-123");
             const modifiedEmail = modifiedUser.data.data.email;
@@ -43,13 +45,15 @@ describe("user service", () => {
     })
     describe("Delete User by id", () => {
         test("Should return a message and a http code", async () => {
+            await User.deleteMany({"username":"Test"});
             const user = await UserService.createNewUser("Test","test@gmail.com","abc-123");
+            console.log(user);
             let id = user.data.data.id;
             const res = await UserService.deleteUser(id);
             expect(res.http).toBe(204);
             expect(res.data).toBe("The product have been deleted");
         })
     })
-        */
+
 })
 
