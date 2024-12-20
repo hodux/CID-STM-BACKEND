@@ -97,7 +97,7 @@
 
 3. **Problème d'utilisation de danfojs**
 
-##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Danfojs ne marchait pas avec ceux qui ont un systeme exploitation windows et marchait que avec ceux qui ont un systeme exploitation linux. On a malheureusement pas resolu le problème et il etait trop tard de le changer avec tous les progrès qu'ils ont fait avec danfojs alors ceux qui avait windows ne fesait que commenter cela pour continuer. Sinon, une meilleure solution qu'on a trouver est d'installer dans visual stuio installer le desktop development with c++ ou le mettre a jour puis il marchera
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Danfojs ne marchait pas avec ceux qui ont un systeme exploitation windows et marchait que avec ceux qui ont un systeme exploitation linux. On a malheureusement pas resolu le problème et il etait trop tard de le changer avec tous les progrès qu'ils ont fait avec danfojs alors ceux qui avait windows ne fesait que commenter cela pour continuer. Sinon, une meilleure solution qu'on a trouver est d'installer dans visual stuio installer le desktop development with c++ ou le mettre a jour puis il marchera. De plus, il faut degrader le node en version 16.
 
 
 ## TESTS
